@@ -39,18 +39,22 @@ def hit?(card_total)
   # code hit? here
   prompt_user
   input = get_user_input
+  until input == 's' || input == 'h'
+    invalid_command
+    prompt_user
+    input = get_user_input
+  end
   if input == 's'
     return card_total
   elsif input == 'h'
-    return deal_card + card_total
+    card_total += deal_card
   end
+  return card_total
 end
 
 def invalid_command
   # code invalid_command here
-  if hit? != 's' || hit? != 'h'
-    puts "invalid"
-  end
+    puts "Please enter a valid command"
 end
 
 #####################################################
